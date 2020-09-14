@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "football-matches"
+  "defaultProject": "football-matches",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
