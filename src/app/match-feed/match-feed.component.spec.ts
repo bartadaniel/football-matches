@@ -7,40 +7,33 @@ import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
 import { MatchFeedComponent } from './match-feed.component';
 
 describe('MatchFeedComponent', () => {
-  let component: MatchFeedComponent;
-  let fixture: ComponentFixture<MatchFeedComponent>;
-  let mockMatchHighlights: MatchHighlight[];
+    let component: MatchFeedComponent;
+    let fixture: ComponentFixture<MatchFeedComponent>;
+    let mockMatchHighlights: MatchHighlight[];
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [MatchFeedComponent, MatchCardComponentMock],
-    }).compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [MatchFeedComponent, MatchCardComponentMock],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    mockMatchHighlights = [
-      createMockMatchHighlight(1),
-      createMockMatchHighlight(2),
-    ];
-    fixture = TestBed.createComponent(MatchFeedComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        mockMatchHighlights = [createMockMatchHighlight(1), createMockMatchHighlight(2)];
+        fixture = TestBed.createComponent(MatchFeedComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('should display match highlights in cards', () => {
-    component.matchHighlights = mockMatchHighlights;
-    fixture.detectChanges();
-    console.log(fixture.debugElement.queryAll(By.css('app-match-card')));
-    const displayedMatchCards = fixture.debugElement
-      .queryAll(By.css('app-match-card'))
-      .map(
-        (matchCard) =>
-          (matchCard.componentInstance as MatchCardComponent).matchHighlight
-      );
-    expect(displayedMatchCards).toEqual(mockMatchHighlights);
-  });
+    it('should display match highlights in cards', () => {
+        component.matchHighlights = mockMatchHighlights;
+        fixture.detectChanges();
+        const displayedMatchCards = fixture.debugElement
+            .queryAll(By.css('app-match-card'))
+            .map((matchCard) => (matchCard.componentInstance as MatchCardComponent).matchHighlight);
+        expect(displayedMatchCards).toEqual(mockMatchHighlights);
+    });
 });
