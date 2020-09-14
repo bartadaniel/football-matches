@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatchHighlight } from '../models/match-highlight.model';
 import { MatchCardComponent } from './match-card.component';
 
@@ -8,6 +8,6 @@ import { MatchCardComponent } from './match-card.component';
 })
 export class MatchCardComponentMock implements MatchCardComponent {
   constructor() {}
-  matchHighlight: MatchHighlight;
+  @Input() matchHighlight: MatchHighlight;
   ngOnInit(): void {}
 }

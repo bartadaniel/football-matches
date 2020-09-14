@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MatchCardComponent } from '../match-card/match-card.component';
+import { MatchCardComponentMock } from '../match-card/match-card.component.mock';
 import { MatchHighlight } from '../models/match-highlight.model';
 import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
 import { MatchFeedComponent } from './match-feed.component';
@@ -12,7 +13,7 @@ describe('MatchFeedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MatchFeedComponent, MatchCardComponent],
+      declarations: [MatchFeedComponent, MatchCardComponentMock],
     }).compileComponents();
   });
 
@@ -33,8 +34,9 @@ describe('MatchFeedComponent', () => {
   it('should display match highlights in cards', () => {
     component.matchHighlights = mockMatchHighlights;
     fixture.detectChanges();
+    console.log(fixture.debugElement.queryAll(By.css('app-match-card')));
     const displayedMatchCards = fixture.debugElement
-      .queryAll(By.directive(MatchCardComponent))
+      .queryAll(By.css('app-match-card'))
       .map(
         (matchCard) =>
           (matchCard.componentInstance as MatchCardComponent).matchHighlight
