@@ -2,6 +2,11 @@ app-match-feed {
     width: 100%;
     max-width: 600px;
 }
+app-toolbar {
+    width: 100%;
+    margin-bottom: 1.5vh;
+}
+
 :host {
     display: flex;
     flex-direction: column;

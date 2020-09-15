@@ -1,6 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,9 +15,9 @@ import { MatchCardComponent } from './match-card/match-card.component';
 import { MatchFeedComponent } from './match-feed/match-feed.component';
 import { MatchHighlightEffects } from './match-highlight.effects';
 import * as fromMatchHighlight from './store/reducers';
-
+import { ToolbarComponent } from './toolbar/toolbar.component';
 @NgModule({
-    declarations: [AppComponent, MatchFeedComponent, MatchCardComponent],
+    declarations: [AppComponent, MatchFeedComponent, MatchCardComponent, ToolbarComponent],
     imports: [
         BrowserModule,
         StoreModule.forRoot(fromMatchHighlight.reducers, {
@@ -35,6 +38,9 @@ import * as fromMatchHighlight from './store/reducers';
         BrowserAnimationsModule,
         HttpClientModule,
         MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

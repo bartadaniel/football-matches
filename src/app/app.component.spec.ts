@@ -25,4 +25,8 @@ describe('AppComponent', () => {
     it('displays the match feed', () => {
         expect(fixture.debugElement.query(By.css('app-match-feed'))).toBeTruthy();
     });
+
+    it('display the toolbar', () => {
+        expect(fixture.debugElement.query(By.css('app-toolbar'))).toBeTruthy();
+    });
 });
