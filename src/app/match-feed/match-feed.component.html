@@ -1,4 +1,1 @@
-<app-match-card
-  *ngFor="let matchHighlight of matchHighlights"
-  [matchHighlight]="matchHighlight"
-></app-match-card>
+<app-match-card *ngFor="let matchHighlight of matchHighlights$ | async" [matchHighlight]="matchHighlight"></app-match-card>

@@ -16,18 +16,23 @@ import * as fromMatchHighlight from './store/reducers';
     declarations: [AppComponent, MatchFeedComponent, MatchCardComponent],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({}, {}),
+        StoreModule.forRoot(fromMatchHighlight.reducers, {
+            metaReducers: fromMatchHighlight.metaReducers,
+            runtimeChecks: {
+                // strictStateImmutability and strictActionImmutability are enabled by default
+                strictStateSerializability: true,
+                strictActionSerializability: true,
+                strictActionWithinNgZone: true,
+                strictActionTypeUniqueness: true,
+            },
+        }),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
         }),
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([MatchHighlightEffects]),
         BrowserAnimationsModule,
         HttpClientModule,
-        EffectsModule.forFeature([MatchHighlightEffects]),
-        StoreModule.forFeature(fromMatchHighlight.matchHighlightFeatureKey, fromMatchHighlight.reducers, {
-            metaReducers: fromMatchHighlight.metaReducers,
-        }),
     ],
     providers: [],
     bootstrap: [AppComponent],

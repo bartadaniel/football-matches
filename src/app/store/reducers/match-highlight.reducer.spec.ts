@@ -2,11 +2,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { createMockMatchHighlight } from 'src/app/models/match-highlight.model.mock';
 import { loadMatchHighlightsFail, loadMatchHighlightsSuccess } from '../actions/match-highlights.actions';
 import {
+    getMatchHighlights,
+    getMatchHighlightsError,
     initialState,
     matchHighlightReducer,
     MatchHighlightState,
-    selectMatchHighlights,
-    selectMatchHighlightsError,
 } from './match-highlight.reducer';
 
 describe('MatchHighlightReducer', () => {
@@ -54,12 +54,12 @@ describe('MatchHighlightReducer', () => {
 
         beforeEach(() => {});
 
-        it('selectMatchHighlights', () => {
-            expect(selectMatchHighlights(state)).toEqual(state.matchHighlights);
+        it('getMatchHighlights', () => {
+            expect(getMatchHighlights(state)).toEqual(state.matchHighlights);
         });
 
-        it('selectMatchHighlightsError', () => {
-            expect(selectMatchHighlightsError(state)).toEqual(state.error);
+        it('getMatchHighlightsError', () => {
+            expect(getMatchHighlightsError(state)).toEqual(state.error);
         });
     });
 });

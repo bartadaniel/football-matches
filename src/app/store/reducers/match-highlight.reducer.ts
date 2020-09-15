@@ -21,5 +21,5 @@ export const matchHighlightReducer = createReducer(
     }))
 );
 
-export const selectMatchHighlights = (state: MatchHighlightState) => state.matchHighlights;
-export const selectMatchHighlightsError = (state: MatchHighlightState) => state.error;
+export const getMatchHighlights = (state: MatchHighlightState) => state.matchHighlights;
+export const getMatchHighlightsError = (state: MatchHighlightState) => state.error;
