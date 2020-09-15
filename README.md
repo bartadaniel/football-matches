@@ -1,7 +1,5 @@
 # Football Scores
 
-![Football matches screenshot](https://drive.google.com/file/d/1jo74YAr5RmTDUguiruZy5kv-vrKt_ses/preview)
-
 Check the highlights of the latest football matches.
 
 ## Development server
