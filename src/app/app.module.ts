@@ -12,11 +12,11 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { MatchCardComponent } from './match-card/match-card.component';
-import { MatchFeedComponent } from './match-feed/match-feed.component';
-import { MatchHighlightEffects } from './match-highlight.effects';
+import { MatchCardComponent } from './components/match-card/match-card.component';
+import { MatchFeedComponent } from './components/match-feed/match-feed.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatchHighlightEffects } from './store/effects/match-highlight.effects';
 import * as fromMatchHighlight from './store/reducers';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
     declarations: [AppComponent, MatchFeedComponent, MatchCardComponent, ToolbarComponent],

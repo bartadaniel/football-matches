@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { By } from '@angular/platform-browser';
-import { MatchHighlight } from '../models/match-highlight.model';
-import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
+import { MatchHighlight } from '../../models/match-highlight.model';
+import { createMockMatchHighlight } from '../../models/match-highlight.model.mock';
 import { MatchCardComponent } from './match-card.component';
 
 describe('MatchCardComponent', () => {

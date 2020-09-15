@@ -2,11 +2,11 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { MatchHighlight } from '../../models/match-highlight.model';
+import { createMockMatchHighlight } from '../../models/match-highlight.model.mock';
+import { loadMatchHighlights } from '../../store/actions/match-highlights.actions';
+import { State } from '../../store/reducers';
 import { MatchCardComponentMock } from '../match-card/match-card.component.mock';
-import { MatchHighlight } from '../models/match-highlight.model';
-import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
-import { loadMatchHighlights } from '../store/actions/match-highlights.actions';
-import { State } from '../store/reducers';
 import { MatchFeedComponent } from './match-feed.component';
 
 describe('MatchFeedComponent', () => {

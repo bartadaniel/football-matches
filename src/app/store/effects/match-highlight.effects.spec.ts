@@ -2,10 +2,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { of, ReplaySubject, throwError } from 'rxjs';
+import { createMockMatchHighlight } from '../../models/match-highlight.model.mock';
+import { MatchHighlightService } from '../../services/match-highlight.service';
+import { loadMatchHighlights, loadMatchHighlightsFail, loadMatchHighlightsSuccess } from '../../store/actions/match-highlights.actions';
 import { MatchHighlightEffects } from './match-highlight.effects';
-import { createMockMatchHighlight } from './models/match-highlight.model.mock';
-import { MatchHighlightService } from './services/match-highlight.service';
-import { loadMatchHighlights, loadMatchHighlightsFail, loadMatchHighlightsSuccess } from './store/actions/match-highlights.actions';
 
 describe('MatchHighlightEffects', () => {
     let actions$ = new ReplaySubject(1);

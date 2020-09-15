@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MatchHighlight } from '../models/match-highlight.model';
-import { PublicPart } from '../utils/public-part.type';
+import { MatchHighlight } from '../../models/match-highlight.model';
+import { PublicPart } from '../../utils/public-part.type';
 import { MatchFeedComponent } from './match-feed.component';
 
 @Component({

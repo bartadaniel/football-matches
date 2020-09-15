@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { MatchHighlight } from '../models/match-highlight.model';
-import { loadMatchHighlights } from '../store/actions/match-highlights.actions';
-import { selectMatchHighlights } from '../store/reducers';
+import { MatchHighlight } from '../../models/match-highlight.model';
+import { loadMatchHighlights } from '../../store/actions/match-highlights.actions';
+import { selectMatchHighlights } from '../../store/reducers';
 
 @Component({
     selector: 'app-match-feed',
