@@ -109,5 +109,10 @@
     "defaultProject": "football-matches",
     "cli": {
         "defaultCollection": "@ngrx/schematics"
+    },
+    "schematics": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
     }
 }
