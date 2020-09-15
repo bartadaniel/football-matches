@@ -1,0 +1,9 @@
+app-match-feed {
+    width: 100%;
+    max-width: 600px;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

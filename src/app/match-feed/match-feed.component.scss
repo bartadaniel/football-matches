@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+app-match-card {
+    margin: 1vh 0;
+}

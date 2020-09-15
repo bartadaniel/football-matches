@@ -1,0 +1,9 @@
+:host {
+    display: block;
+}
+
+.app-match-card {
+    &__thumbnail {
+        width: 100%;
+    }
+}
