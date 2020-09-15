@@ -23,11 +23,11 @@ describe('MatchHighlightService', () => {
         const mockMatchHighlights = [createMockMatchHighlight(1), createMockMatchHighlight(2)];
 
         service.getMatchHighlights().subscribe((matchHighlights) => {
-            const req = httpTestingController.expectOne(MATCH_HIGHLIGHT_URL);
-            expect(req.request.method).toEqual('GET');
-            req.flush(mockMatchHighlights);
-            httpTestingController.verify();
             expect(matchHighlights).toEqual(mockMatchHighlights);
         });
+        const req = httpTestingController.expectOne(MATCH_HIGHLIGHT_URL);
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockMatchHighlights);
+        httpTestingController.verify();
     });
 });
