@@ -8,7 +8,7 @@ import { selectMatchHighlights } from '../store/reducers';
 @Component({
     selector: 'app-match-feed',
     templateUrl: './match-feed.component.html',
-    styleUrls: ['./match-feed.component.css'],
+    styleUrls: ['./match-feed.component.scss'],
 })
 export class MatchFeedComponent implements OnInit {
     matchHighlights$: Observable<MatchHighlight[]>;
