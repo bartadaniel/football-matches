@@ -1,19 +1,16 @@
-<mat-card>
-    <mat-card-header class="app-match-card__title">
-        <mat-card-title>
+<mat-card class="app-match-card__card">
+    <mat-card-header>
+        <mat-card-title class="app-match-card__title">
             {{ matchHighlight.title }}
         </mat-card-title>
         <mat-card-subtitle class="app-match-card__competition">
             {{ matchHighlight.competition.name }}
         </mat-card-subtitle>
     </mat-card-header>
-    <img class="app-match-card__thumbnail" [src]="matchHighlight.thumbnail" />
+    <div class="app-match-card__thumbnail" [style.background-image]="'url(' + matchHighlight.thumbnail + ')'"></div>
     <mat-card-actions>
-        <!-- <a class="app-match-card__link" [href]="matchHighlight.url" target="_blank"
-            ><button mat-icon-button color="accent" aria-label="Open link"><mat-icon>open_in_browser</mat-icon></button></a
-        > -->
         <a class="app-match-card__link" [href]="matchHighlight.url" target="_blank"
-            ><button mat-button color="accent" aria-label="Open link">Open</button></a
+            ><button mat-button color="accent" aria-label="Open link">OPEN</button></a
         >
     </mat-card-actions>
 </mat-card>
