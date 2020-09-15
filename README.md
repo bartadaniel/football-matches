@@ -1,6 +1,8 @@
-# FootballMatches
+# Football Scores
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
+![Football matches screenshot](https://drive.google.com/file/d/1jo74YAr5RmTDUguiruZy5kv-vrKt_ses/preview)
+
+Check the highlights of the latest football matches.
 
 ## Development server
 
