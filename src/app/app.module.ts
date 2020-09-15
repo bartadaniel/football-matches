@@ -10,16 +10,13 @@ import { AppComponent } from './app.component';
 import { MatchCardComponent } from './match-card/match-card.component';
 import { MatchFeedComponent } from './match-feed/match-feed.component';
 import { MatchHighlightEffects } from './match-highlight.effects';
-import { metaReducers, reducers } from './reducers';
+import * as fromMatchHighlight from './store/reducers';
 
 @NgModule({
     declarations: [AppComponent, MatchFeedComponent, MatchCardComponent],
     imports: [
         BrowserModule,
         StoreModule.forRoot({}, {}),
-        StoreModule.forRoot(reducers, {
-            metaReducers,
-        }),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
@@ -28,6 +25,9 @@ import { metaReducers, reducers } from './reducers';
         BrowserAnimationsModule,
         HttpClientModule,
         EffectsModule.forFeature([MatchHighlightEffects]),
+        StoreModule.forFeature(fromMatchHighlight.matchHighlightFeatureKey, fromMatchHighlight.reducers, {
+            metaReducers: fromMatchHighlight.metaReducers,
+        }),
     ],
     providers: [],
     bootstrap: [AppComponent],
