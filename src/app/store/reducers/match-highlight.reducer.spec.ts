@@ -1,11 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createMockMatchHighlight } from 'src/app/models/match-highlight.model.mock';
 import { loadMatchHighlightsFail, loadMatchHighlightsSuccess } from '../actions/match-highlights.actions';
-import { initialState, reducer } from './match-highlight.reducer';
+import {
+    initialState,
+    matchHighlightReducer,
+    MatchHighlightState,
+    selectMatchHighlights,
+    selectMatchHighlightsError,
+} from './match-highlight.reducer';
 
 describe('MatchHighlightReducer', () => {
     it('returns the default state on undefined action', () => {
-        expect(reducer(undefined, { type: '' })).toEqual(initialState);
+        expect(matchHighlightReducer(undefined, { type: '' })).toEqual(initialState);
     });
 
     describe('loadMatchHighlightSuccess', () => {
@@ -18,25 +24,42 @@ describe('MatchHighlightReducer', () => {
         });
 
         it('should populate matchHighlights', () => {
-            expect(reducer(initialState, loadMatchHighlightsSuccessAction).matchHighlights).toEqual(mockMatchHighlights);
+            expect(matchHighlightReducer(initialState, loadMatchHighlightsSuccessAction).matchHighlights).toEqual(mockMatchHighlights);
         });
 
         it('should set error to null', () => {
-            expect(reducer(initialState, loadMatchHighlightsSuccessAction).error).toBeNull();
-            expect(reducer({ ...initialState, error: '404' }, loadMatchHighlightsSuccessAction).error).toBeNull();
+            expect(matchHighlightReducer(initialState, loadMatchHighlightsSuccessAction).error).toBeNull();
+            expect(matchHighlightReducer({ ...initialState, error: '404' }, loadMatchHighlightsSuccessAction).error).toBeNull();
         });
     });
 
     describe('loadMatchHighlightSuccess', () => {
         let loadMatchHighlightsFailAction;
-        let error = new HttpErrorResponse({ status: 404 });
+        let error = new HttpErrorResponse({ statusText: 'There was an error' });
 
         beforeEach(() => {
             loadMatchHighlightsFailAction = loadMatchHighlightsFail({ error });
         });
 
         it('should set error', () => {
-            expect(reducer(initialState, loadMatchHighlightsFailAction).error).toEqual(error);
+            expect(matchHighlightReducer(initialState, loadMatchHighlightsFailAction).error).toEqual(error.statusText);
+        });
+    });
+
+    describe('Selectors', () => {
+        const state: MatchHighlightState = {
+            matchHighlights: [createMockMatchHighlight(1), createMockMatchHighlight(2)],
+            error: '404',
+        };
+
+        beforeEach(() => {});
+
+        it('selectMatchHighlights', () => {
+            expect(selectMatchHighlights(state)).toEqual(state.matchHighlights);
+        });
+
+        it('selectMatchHighlightsError', () => {
+            expect(selectMatchHighlightsError(state)).toEqual(state.error);
         });
     });
 });
