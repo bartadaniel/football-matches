@@ -1,3 +1,4 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +17,7 @@ import { MatchFeedComponent } from './match-feed/match-feed.component';
 import { MatchHighlightEffects } from './match-highlight.effects';
 import * as fromMatchHighlight from './store/reducers';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+
 @NgModule({
     declarations: [AppComponent, MatchFeedComponent, MatchCardComponent, ToolbarComponent],
     imports: [
@@ -41,6 +43,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
+        ScrollingModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

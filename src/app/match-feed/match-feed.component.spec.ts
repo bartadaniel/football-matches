@@ -1,7 +1,7 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { MatchCardComponent } from '../match-card/match-card.component';
 import { MatchCardComponentMock } from '../match-card/match-card.component.mock';
 import { MatchHighlight } from '../models/match-highlight.model';
 import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
@@ -26,6 +26,7 @@ describe('MatchFeedComponent', () => {
         };
 
         await TestBed.configureTestingModule({
+            imports: [ScrollingModule],
             declarations: [MatchFeedComponent, MatchCardComponentMock],
             providers: [provideMockStore({ initialState: mockState })],
         }).compileComponents();
@@ -43,14 +44,19 @@ describe('MatchFeedComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should display match highlights from store in cards', () => {
-        const displayedMatchCards = fixture.debugElement
-            .queryAll(By.css('app-match-card'))
-            .map((matchCard) => (matchCard.componentInstance as MatchCardComponent).matchHighlight);
-        expect(displayedMatchCards).toEqual(mockMatchHighlights);
+    it('should fetch match highlights from store', (done) => {
+        component.matchHighlights$.subscribe((matchHighlights) => {
+            expect(matchHighlights).toEqual(mockMatchHighlights);
+            done();
+        });
     });
 
     it('should dispatch loadMatchHighlights on init', () => {
         expect(mockStore.dispatch).toHaveBeenCalledWith(loadMatchHighlights());
+    });
+
+    it('should wrap match cards into cdk-virtual-scroll-viewport', () => {
+        const scrollElement = fixture.debugElement.query(By.css('cdk-virtual-scroll-viewport'));
+        expect(scrollElement).toBeDefined();
     });
 });

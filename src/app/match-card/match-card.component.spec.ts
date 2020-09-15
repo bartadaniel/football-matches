@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
 import { By } from '@angular/platform-browser';
 import { MatchHighlight } from '../models/match-highlight.model';
 import { createMockMatchHighlight } from '../models/match-highlight.model.mock';
@@ -11,6 +12,7 @@ describe('MatchCardComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [MatCardModule],
             declarations: [MatchCardComponent],
         }).compileComponents();
     });
@@ -41,7 +43,7 @@ describe('MatchCardComponent', () => {
 
     it('displays thumbnail of match highlight', () => {
         const thumbnailEl: HTMLImageElement = fixture.debugElement.query(By.css('.app-match-card__thumbnail')).nativeElement;
-        expect(thumbnailEl.src).toContain(mockMatchHighlight.thumbnail);
+        expect(getComputedStyle(thumbnailEl).backgroundImage).toContain(mockMatchHighlight.thumbnail);
     });
 
     it('displays link to open highlight', () => {

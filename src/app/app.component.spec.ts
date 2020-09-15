@@ -2,13 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MatchFeedComponentMock } from './match-feed/match-feed.component.mock';
+import { ToolbarComponentMock } from './toolbar/toolbar.component.mock';
 
 describe('AppComponent', () => {
     let component: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [AppComponent, MatchFeedComponentMock],
+            declarations: [AppComponent, MatchFeedComponentMock, ToolbarComponentMock],
         }).compileComponents();
     });
 

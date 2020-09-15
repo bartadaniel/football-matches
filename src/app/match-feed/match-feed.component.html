@@ -1,1 +1,7 @@
-<app-match-card *ngFor="let matchHighlight of matchHighlights$ | async" [matchHighlight]="matchHighlight"></app-match-card>
+<cdk-virtual-scroll-viewport class="app-match-feed__scroll-container" itemSize="430">
+    <app-match-card
+        class="app-match-feed__card"
+        *cdkVirtualFor="let matchHighlight of matchHighlights$ | async"
+        [matchHighlight]="matchHighlight"
+    ></app-match-card>
+</cdk-virtual-scroll-viewport>
