@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -33,6 +34,7 @@ import * as fromMatchHighlight from './store/reducers';
         EffectsModule.forRoot([MatchHighlightEffects]),
         BrowserAnimationsModule,
         HttpClientModule,
+        MatCardModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

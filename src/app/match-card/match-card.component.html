@@ -1,7 +1,11 @@
-<div class="app-match-card__title">
-  {{ matchHighlight.title }}
-</div>
-<div class="app-match-card__competition">
-  {{ matchHighlight.competition.name }}
-</div>
-<img class="app-match-card__thumbnail" [src]="matchHighlight.thumbnail" />
+<mat-card>
+    <mat-card-header class="app-match-card__title">
+        <mat-card-title>
+            {{ matchHighlight.title }}
+        </mat-card-title>
+        <mat-card-subtitle class="app-match-card__competition">
+            {{ matchHighlight.competition.name }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <img class="app-match-card__thumbnail" [src]="matchHighlight.thumbnail" />
+</mat-card>
