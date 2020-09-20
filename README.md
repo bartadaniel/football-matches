@@ -5,4 +5,4 @@ Check the highlights of the latest football matches. Live demo [here](https://fo
 
 ## Development
 
-Standard Angular CLI project. Check the [CLI Overiew](https://angular.io/cli) for more info.
+Standard Angular CLI project. Check the [CLI Overview](https://angular.io/cli) for more info.
